@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Dashboatd extends Component {
+class Dashboard extends Component {
     render() {
         console.log(this.props)
         return (
@@ -15,7 +15,7 @@ class Dashboatd extends Component {
 function mapStateToProps ({questions}) {
     return {
         questions: Object.keys(questions)
-        .sort((a,b) => question[b].timestamp - question[a].timestamp)
+        .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
     }
 }
 
