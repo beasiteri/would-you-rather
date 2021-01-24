@@ -12,10 +12,10 @@ This project is react-based web app part of the React Nanodegree program.
 
 ### `npm install`
 
-2). Run the app in development mode.
+2). Run the app in development mode:
 
 ### `npm start`
 
-A new browser window should automatically open displaying the app.  If it doesn't, navigate to [http://localhost:3000/](http://localhost:3000/) in your browser
+A new browser window should automatically open displaying the app.  If it doesn't, navigate to [http://localhost:3000/](http://localhost:3000/) in your browser.
 
 For reference, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
