@@ -18,8 +18,8 @@ import {
 
 export function saveQuestion (info) {
     return _saveQuestion(info)
-  }
+}
   
-  export function saveQuestionAnswer (info) {
+export function saveQuestionAnswer (info) {
     return _saveQuestionAnswer(info)
-  }
+}
