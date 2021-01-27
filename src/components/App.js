@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
-import Dashboard from './Dashboard';
+import { BrowserRouter as Router } from 'react-router-dom';
+import NavBar from './NavBar';
 
 class App extends Component {
   componentDidMount() {
@@ -9,7 +10,13 @@ class App extends Component {
   }
   render() {
     return(
-      <div><Dashboard /></div>
+      <Router>
+        <Fragment>
+          <div className="main-container">
+            test
+          </div>
+        </Fragment>
+      </Router>
     )
   }
 }
