@@ -11,7 +11,8 @@ class Routes extends Component {
         Routes.propTypes = {notLoggedIn: PropTypes.any};
 
         return(
-            <Switch>
+            <div className="container">
+                <Switch>
                 {
                     notLoggedIn ? 
                     <Route path="/" exact component={Login}/> :
@@ -20,6 +21,7 @@ class Routes extends Component {
                     </Fragment>
                 }
             </Switch>
+            </div>
         )
     }
 }
