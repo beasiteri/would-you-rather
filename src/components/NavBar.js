@@ -1,11 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import { Navbar, NavbarToggler, Collapse, Nav, NavItem, NavLink } from 'reactstrap';
+import PropTypes from "prop-types";
 
 class NavBar extends Component {
     render() {
+        const { authedUser } = this.props;
+        
+        NavBar.propTypes = {
+            authedUser: PropTypes.string,
+        };
+
         return(
             <div>
                 <Navbar>
+                {authedUser && 
                     <Fragment>
                         <NavbarToggler>
                             <Collapse>
@@ -29,6 +37,8 @@ class NavBar extends Component {
                             </Collapse>
                         </NavbarToggler>
                     </Fragment>
+                
+                }
                 </Navbar>
             </div>
         )
