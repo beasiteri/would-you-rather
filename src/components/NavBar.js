@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Navbar, NavbarToggler, Collapse, Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import {connect} from "react-redux";
 
 class NavBar extends Component {
@@ -31,13 +31,13 @@ class NavBar extends Component {
                     <Collapse isOpen={this.state.isOpen} navbar className="d-flex justify-content-between">
                         <Nav navbar>
                             <NavItem>
-                                <NavLink>Home</NavLink>
+                                <NavLink tag={Link} to="/">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink>New Question</NavLink>
+                                <NavLink tag={Link} to="/add">New Question</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink>Leader Board</NavLink>
+                                <NavLink tag={Link} to="/leaderboard">Leader Board</NavLink>
                             </NavItem>
                         </Nav>
                         <Nav navbar>
@@ -45,7 +45,7 @@ class NavBar extends Component {
                                 <NavLink>UserName</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink>Logout</NavLink>
+                                <NavLink tag={Link} to="/logout">Logout</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
