@@ -16,15 +16,15 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div>
-                <Nav>
-                    <NavItem>
+            <div className="dashboard">
+                <Nav className="d-flex flex-nowrap">
+                    <NavItem className="navItem w-100 text-center">
                         <NavLink onClick={() => {this.toggleTab('1')}}
                             className={classnames({ active: this.state.activeTab === '1' })}>
                             Unanswered
                         </NavLink>
                     </NavItem>
-                    <NavItem>
+                    <NavItem className="navItem w-100 text-center">
                         <NavLink onClick={() => {this.toggleTab('2')}}
                         className={classnames({ active: this.state.activeTab === '2' })}>
                             Answered
