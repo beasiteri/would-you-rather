@@ -8,15 +8,7 @@ import NavBar from './NavBar';
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData())
-  }
-
-  mapDispatchToProps(dispatch) {
-    return {
-      handleInitialData: () => {
-        dispatch(handleInitialData())
-      }
-    }
+    this.props.handleInitialData()
   }
 
   render() {
@@ -40,4 +32,18 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+function mapDispatchToProps(dispatch) {
+  return {
+    handleInitialData: () => {
+      dispatch(handleInitialData())
+    }
+  }
+}
+
+function mapStateToProps({ authedUser }) {
+  return {
+    notLoggedIn: authedUser === null
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
