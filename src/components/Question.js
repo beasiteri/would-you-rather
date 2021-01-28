@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {  withRouter } from 'react-router-dom';
-import { Card, CardHeader, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardHeader, CardBody, CardTitle, Button } from 'reactstrap';
 
 class Question extends Component {
     constuctor() {
@@ -31,7 +31,7 @@ class Question extends Component {
                         <ul className="col-8">
                             <CardTitle>Would You Rather</CardTitle>
                             <li className={question.optionOne.votes.includes(auth) ? "optionSelected" : ""}>...{question.optionOne.text}...</li>
-                            <button className="btn w-100">View Pull</button>
+                            <Button className="btn btn-custom">View Pull</Button>
                         </ul>
                     </CardBody>
                 </Card>
