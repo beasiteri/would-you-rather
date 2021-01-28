@@ -1,6 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  border-bottom: 2px solid #2e968d;
+  margin-bottom: 30px;
+}
+
 .dashboard {
-  width: 400px;
+  width: 500px;
   margin: 0 auto;
+  border-radius: 3px;
   border: 1px solid #e1e1e1;
 }
 
@@ -12,11 +22,73 @@
   color: #2e968d;
 }
 
-.dashboard .active {
+.dashboard .nav .active {
   background-color:#2e968d;
+  border: none;
 }
 
 .dashboard .active.nav-link {
   color: #fff;
 }
 
+.dashboard .question-block {
+  border: 1px solid #e1e1e1;
+  margin: 5px;
+}
+
+.tab-content .row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  margin: 0;
+}
+
+.tab-content .col {
+  margin-top: 10px;
+}
+
+.tab-content .col:last-child {
+  margin-bottom: 10px;
+}
+
+.tab-content li {
+  list-style-type: none;
+}
+
+.tab-content .card-header {
+  padding: 5px 15px;
+}
+
+.tab-content .card-body {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 5px;
+}
+
+.tab-content .card-body ul {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tab-content .card-title {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.tab-content .btn {
+  border: 1px solid #2e968d;
+  border-radius: 3px;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.tab-content .btn:hover {
+  background-color: #2e968d;
+  color: #e1e1e1;
+}
+
+.tab-content .image {
+  border-radius: 50%;
+}
