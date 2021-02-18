@@ -1,11 +1,40 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
 class LeaderBoard extends Component {
     render() {
+        const { users } = this.props;
+
+        LeaderBoard.propTypes = {
+            users: PropTypes.array.isRequired
+          };
         return(
-            <div>
-                test LeaderBoard
+            <div className="leaderboard-container">
+                {users.map((user, index) => (
+                    <div className="user-leaderboard">
+                        <div className="user-avatar">
+                            <img src={user.avatarURL} className="avatar" alt={`${user.name}`}/>
+                        </div>
+                        <div className="user-question-score-container">
+                            <p>{user.name}</p>
+                            <div className="user-question-score">
+                                <div>
+                                    <p>Answered questions</p>
+                                    <p>{user.questions.length}</p>
+                                </div>
+                                <div>
+                                    <p>Created questions</p>
+                                    <p>{user.questions.length}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="total-score">
+                                <p>Score</p>
+                                <span>{Number(user.questions.length) + Number(user.questions.length)}</span>
+                        </div>
+                    </div>
+                ))}
             </div>
         )
     }
