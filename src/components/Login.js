@@ -42,9 +42,17 @@ class Login extends Component {
                   <Form onSubmit={this.handleSubmit}>
                       <FormGroup>
                           <Label for="userSelect">Sign In</Label>
-                          <Input type="select" id="userSelect" name="select" value={userId}
-                          onChange={this.handleChangeUser} />
-                          <option value="" disabled>Select User</option>
+                          <Input type="select" id="userSelect"    
+                                name="select" value={userId}
+                                onChange={this.handleChangeUser}>
+                                <option value="" disabled>Select User</option>
+                                {
+                                Object.keys(users).map(user =>
+                                <option key={user} value={user}>
+                                  {users[user].name}
+                                </option>)
+                                }
+                          </Input>
                       </FormGroup>
                       <input disabled={userId === ''} type="submit" value="Sign In" />
                   </Form>
