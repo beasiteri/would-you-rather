@@ -34,50 +34,50 @@ class NavBar extends Component {
 
         return(
             <div>
+                {authedUser &&
                 <Navbar expand="md">
-                {authedUser && 
-                <Fragment>
-                    <NavbarToggler onClick={this.toggleNavbar} />
-                    <Collapse isOpen={this.state.isOpen} navbar className="d-flex justify-content-between">
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink 
-                                    className={classnames({ active: this.state.activeTab === 'home' })}
-                                    onClick={() => { this.toggleTab('home'); }} 
-                                    tag={Link} 
-                                    to="/">Home</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink 
-                                    className={classnames({ active: this.state.activeTab === 'newquestion' })}
-                                    onClick={() => { this.toggleTab('newquestion'); }} 
-                                    tag={Link} 
-                                    to="/add">New Question</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink 
-                                    className={classnames({ active: this.state.activeTab === 'leaderboard' })}
-                                    onClick={() => { this.toggleTab('leaderboard'); }}
-                                    tag={Link} 
-                                    to="/leaderboard">Leader Board</NavLink>
-                            </NavItem>
-                        </Nav>
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink>UserName</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink 
-                                    className={classnames({ active: this.state.activeTab === 'logout' })}
-                                    onClick={() => { this.toggleTab('logout'); }}
-                                    tag={Link} 
-                                    to="/logout">Logout</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Fragment>
-                }
+                    <Fragment>
+                        <NavbarToggler onClick={this.toggleNavbar} />
+                        <Collapse isOpen={this.state.isOpen} navbar className="d-flex justify-content-between">
+                            <Nav navbar>
+                                <NavItem>
+                                    <NavLink 
+                                        className={classnames({ active: this.state.activeTab === 'home' })}
+                                        onClick={() => { this.toggleTab('home'); }} 
+                                        tag={Link} 
+                                        to="/">Home</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink 
+                                        className={classnames({ active: this.state.activeTab === 'newquestion' })}
+                                        onClick={() => { this.toggleTab('newquestion'); }} 
+                                        tag={Link} 
+                                        to="/add">New Question</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink 
+                                        className={classnames({ active: this.state.activeTab === 'leaderboard' })}
+                                        onClick={() => { this.toggleTab('leaderboard'); }}
+                                        tag={Link} 
+                                        to="/leaderboard">Leader Board</NavLink>
+                                </NavItem>
+                            </Nav>
+                            <Nav navbar>
+                                <NavItem>
+                                    <NavLink>UserName</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink 
+                                        className={classnames({ active: this.state.activeTab === 'logout' })}
+                                        onClick={() => { this.toggleTab('logout'); }}
+                                        tag={Link} 
+                                        to="/logout">Logout</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
+                    </Fragment>
                 </Navbar>
+                }
             </div>
         )
     }

@@ -37,21 +37,24 @@ class Login extends Component {
       };
 
       return(
-          <Row>
-              <Col md="12">
+          <Row className="login-container">
+              <Col>
+                  <div className="nav-welcome">
+                    <h1>Welcome to the Would You Rather App!</h1>
+                    <p>Please sign in to continue</p>
+                  </div>
                   <Form onSubmit={this.handleSubmit}>
                       <FormGroup>
-                          <Label for="userSelect">Sign In</Label>
-                          <Input type="select" id="userSelect"    
-                                name="select" value={userId}
-                                onChange={this.handleChangeUser}>
-                                <option value="" disabled>Select User</option>
-                                {
-                                Object.keys(users).map(user =>
-                                <option key={user} value={user}>
-                                  {users[user].name}
-                                </option>)
-                                }
+                          <Input type="select"    
+                            name="select" value={userId}
+                            onChange={this.handleChangeUser}>
+                            <option value="" disabled>Select User</option>
+                            {
+                            Object.keys(users).map(user =>
+                            <option key={user} value={user}>
+                              {users[user].name}
+                            </option>)
+                            }
                           </Input>
                       </FormGroup>
                       <input disabled={userId === ''} type="submit" value="Sign In" />
