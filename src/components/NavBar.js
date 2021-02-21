@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Navbar, NavbarToggler, Collapse, Nav, NavItem, NavLink } from 'reactstrap';
+import { Navbar, NavbarToggler, Collapse, Nav, NavItem, NavLink, NavbarBrand } from 'reactstrap';
 import PropTypes from "prop-types";
 import { withRouter, Link } from "react-router-dom";
 import {connect} from "react-redux";
@@ -35,10 +35,11 @@ class NavBar extends Component {
         return(
             <div>
                 {authedUser &&
-                <Navbar expand="md">
+                <Navbar bg="primary" variant="dark" light expand="md">
                     <Fragment>
+                        <NavbarBrand className="d-sm-block d-md-none" tag={Link} to="/">Would You Rather</NavbarBrand>
                         <NavbarToggler onClick={this.toggleNavbar} />
-                        <Collapse isOpen={this.state.isOpen} navbar className="d-flex justify-content-between">
+                        <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
                                     <NavLink 

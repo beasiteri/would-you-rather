@@ -2,6 +2,24 @@
   box-sizing: border-box;
 }
 
+@media screen and (min-width: 768px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .navbar-nav .nav-link.active {
+    color: #fff !important;
+    background-color: #2e968d;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .navbar-collapse {
+    justify-content: space-between;
+  }
+}
+
 .navbar {
   border-bottom: 2px solid #2e968d;
   margin-bottom: 30px;
@@ -16,10 +34,10 @@
   color: #1e1e1e;
 }
 
-.navbar-nav .nav-link.active {
-  color: #fff;
-  background-color: #2e968d;
-  border-radius: 10px 10px 0 0;
+.navbar-toggler {
+  margin: 8px 0 14px;
+  top: 15px;
+  right: 0;
 }
 
 .btn.btn-custom {
@@ -66,7 +84,7 @@
 .dashboard,
 .newQuestion,
 .leaderboard-container {
-  width: 400px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
