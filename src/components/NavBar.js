@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { withRouter, Link } from "react-router-dom";
 import {connect} from "react-redux";
 import classnames from 'classnames';
+import User from "./User";
 
 class NavBar extends Component {
     state = {
@@ -65,7 +66,7 @@ class NavBar extends Component {
                             </Nav>
                             <Nav navbar>
                                 <NavItem>
-                                    <NavLink>UserName</NavLink>
+                                    <User id={authedUser}/>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink 
