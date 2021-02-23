@@ -12,9 +12,9 @@ class LeaderBoard extends Component {
         return(
             <div className="leaderboard-container">
                 {users.map((user, index) => (
-                    <div className="user-leaderboard">
+                    <div key={index} className="user-leaderboard">
                         <div className="user-avatar">
-                            <img src={user.avatarURL} className="avatar" alt={`${user.name}`}/>
+                            <img src={user.avatarURL} className="avatar" alt={user.name}/>
                         </div>
                         <div className="user-question-score-container">
                             <p>{user.name}</p>
@@ -29,9 +29,9 @@ class LeaderBoard extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div class="total-score">
-                                <p>Score</p>
-                                <span>{Number(user.questions.length) + Number(user.questions.length)}</span>
+                        <div className="total-score">
+                            <p>Score</p>
+                            <span>{Number(user.questions.length) + Number(user.questions.length)}</span>
                         </div>
                     </div>
                 ))}

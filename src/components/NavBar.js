@@ -71,7 +71,6 @@ class NavBar extends Component {
                                 <NavItem>
                                     <NavLink 
                                         className={classnames({ active: this.state.activeTab === 'logout' })}
-                                        onClick={() => { this.toggleTab('logout'); }}
                                         tag={Link} 
                                         to="/logout">Logout</NavLink>
                                 </NavItem>

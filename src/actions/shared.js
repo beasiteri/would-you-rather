@@ -1,7 +1,7 @@
-import { getInitialData, saveQuestion, saveQuestionAnswer } from '../utils/api';
+import { getInitialData } from '../utils/api';
 import { receiveUsers, addUserQuestion, saveUserAnswer } from './users';
-import { receiveQuestions, addQuestion } from './questions';
-import { setAuthedUser } from './authedUser';
+import { receiveQuestions, addQuestion, saveQuestionAnswer } from './questions';
+import { _saveQuestionAnswer, _saveQuestion } from '../utils/_DATA'
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -16,7 +16,7 @@ export function handleInitialData() {
 export function handleAddQuestion (optionOneText, optionTwoText){
     return (dispatch, getState) => {
         const { authedUser } = getState();
-        return saveQuestion({
+        return _saveQuestion({
             optionOneText,
             optionTwoText,
             author: authedUser
@@ -37,7 +37,7 @@ export function handleAnswer (qid, option) {
         qid,
         answer: option
       };
-      saveQuestionAnswer(info)
+      _saveQuestionAnswer(info)
         .then(() => {
             dispatch(saveQuestionAnswer(authedUser, qid, option));
             dispatch(saveUserAnswer(authedUser, qid, option))

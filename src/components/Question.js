@@ -15,7 +15,7 @@ class Question extends Component {
     }
 
     render() {
-        const {question, auth} = this.props;
+        const {question, auth, author } = this.props;
 
         Question.propTypes = {
             question: PropTypes.object.isRequired,
@@ -25,9 +25,9 @@ class Question extends Component {
         return (
             <div>
                 <Card onClick={(e) => this.loadQuestionDetails(e, question.id)}>
-                    <CardHeader>Username asks:</CardHeader>
+                    <CardHeader>{author.name} asks:</CardHeader>
                     <CardBody>
-                        <img className="image col-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTam331V51EU5QsWoJNCRUFHmg5ILCirKGMYQ&usqp=CAU" />
+                        <img className="image col-4" src={author.avatarURL} alt="placeholder" />
                         <ul className="col-8">
                             <CardTitle>Would You Rather</CardTitle>
                             <li className={question.optionOne.votes.includes(auth) ? "optionSelected" : ""}>...{question.optionOne.text}...</li>
@@ -43,7 +43,8 @@ class Question extends Component {
 function mapStateToProps (state, { id }) {
     return {
       question : state.questions[id],
-      auth: state.authedUser
+      auth: state.authedUser,
+      author: state.users[state.questions[id].author]
     }
   }
 
