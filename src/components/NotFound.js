@@ -20,14 +20,14 @@ class NotFound extends Component {
 
         return(
             <Card className="notFound">
-                <CardHeader>404 - Page Not Found</CardHeader>
                 <CardBody>
-                <CardTitle>Would You Rather</CardTitle>
-                <p>To use this app please click the button below to return to the Home Page and Sign in!</p>      
-                <Button className="btn btn-custom w-50" onClick={() => this.loadHomePage()}>
-                    Home Page
-                </Button>
-                </CardBody>
+                    <CardTitle>404 - Page Not Found</CardTitle>
+                    <h1>Would You Rather</h1>
+                    <p>To use this app please click the button below to return to the Home Page and Sign in!</p>      
+                    <Button className="btn btn-custom w-50" onClick={() => this.loadHomePage()}>
+                        Home Page
+                    </Button>
+                    </CardBody>
             </Card>
         )
     }

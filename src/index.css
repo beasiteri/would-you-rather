@@ -451,16 +451,46 @@
 /* ------------------- End of Qeustion Details ------------------ */
 
 /* -------------------- Not Found --------------------*/
-.notFound .card-body{
-  width: 400px;
-  margin: 0 auto;
+.notFound {
+  max-width: 500px;
   text-align: center;
-  margin: 100px auto;
+  margin: 50px 15px;
+}
+
+.notFound .card-body {
+  box-shadow: 5px 9px 19px -9px #9a9292;
+}
+
+.notFound .card-body .card-title {
+  font-size: 24px;
+  margin-bottom: 40px;
+  font-weight: bolder;
+}
+
+.notFound .card-body h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.notFound .card-body p {
+  max-width: 400px;
+}
+
+.notFound .card-body button {
+  margin-bottom: 20px;
 }
 /* -------------------- End of Not Found --------------------*/
 
 /* ------------------- Media Queries -------------------*/
 @media(min-width: 411px) {
+  .notFound {
+    margin: 50px auto;
+  }
+
+  .notFound .card-body p {
+    margin: 0 auto;
+  }
+  
   .login {
     position: absolute;
     top: 15%;
