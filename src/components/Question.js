@@ -27,8 +27,8 @@ class Question extends Component {
                 <Card onClick={(e) => this.loadQuestionDetails(e, question.id)}>
                     <CardHeader>{author.name} asks:</CardHeader>
                     <CardBody>
-                        <img className="image col-4" src={author.avatarURL} alt="placeholder" />
-                        <ul className="col-8">
+                        <img className="image col-xs-12 col-sm-5" src={author.avatarURL} alt="placeholder" />
+                        <ul className="col-xs-12 col-sm-7">
                             <CardTitle>Would You Rather</CardTitle>
                             <li className={question.optionOne.votes.includes(auth) ? "optionSelected" : ""}>...{question.optionOne.text}...</li>
                             <Button className="btn btn-custom">View Pull</Button>

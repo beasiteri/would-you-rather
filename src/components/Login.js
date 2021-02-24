@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Form, FormGroup, Label, Input } from "reactstrap";
+import { Row, Col, Form, FormGroup, Input } from "reactstrap";
 import PropTypes from 'prop-types';
 import { setAuthedUser } from '../actions/authedUser';
 import { connect } from 'react-redux';
