@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, CardHeader, CardBody, CardTitle, Form, Input, Button } from 'reactstrap';
+import { Card, CardHeader, CardBody, CardTitle, Form, Input, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { handleAddQuestion } from '../actions/shared';
 import { connect } from 'react-redux';
@@ -47,24 +47,18 @@ class NewQuestion extends Component {
         }
 
         return(
-            <div className="newQuestion">
-                <Row>
-                <Col className="p-0">
-                    <Card>
-                        <CardHeader className="text-center py-2">Create New Question</CardHeader>
-                        <CardBody>
-                            <CardTitle>Would you rather...</CardTitle>
-                            <Form onSubmit={this.handleSubmit}>
-                                <Input type="text" name="optionOne" value={optionOne} onChange={this.handleChangeOptionOne} placeholder="Enter Option One Text Here" />
-                                <p className="my-2 text-center">OR</p>
-                                <Input type="text" name="optionTwo" value={optionTwo} onChange={this.handleChangeOptionTwo} placeholder="Enter Option Two Text Here" />
-                                <Button disabled={optionOne === '' || optionTwo === ''} className="btn btn-custom">Submit</Button>
-                            </Form>
-                        </CardBody>
-                    </Card>
-                </Col>
-            </Row>
-            </div>
+            <Card className="newQuestion">
+                <CardHeader className="text-center py-2">Create New Question</CardHeader>
+                <CardBody>
+                    <CardTitle>Would you rather...</CardTitle>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Input type="text" name="optionOne" value={optionOne} onChange={this.handleChangeOptionOne} placeholder="Enter Option One Text Here" />
+                        <p className="my-2 text-center">OR</p>
+                        <Input type="text" name="optionTwo" value={optionTwo} onChange={this.handleChangeOptionTwo} placeholder="Enter Option Two Text Here" />
+                        <Button disabled={optionOne === '' || optionTwo === ''} className="btn btn-custom">Submit</Button>
+                    </Form>
+                </CardBody>
+            </Card>
         )
     }
 }

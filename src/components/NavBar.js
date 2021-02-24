@@ -34,7 +34,7 @@ class NavBar extends Component {
         };
 
         return(
-            <div>
+            <Fragment>
                 {authedUser &&
                 <Navbar bg="primary" variant="dark" light expand="md">
                     <Fragment>
@@ -79,7 +79,7 @@ class NavBar extends Component {
                     </Fragment>
                 </Navbar>
                 }
-            </div>
+            </Fragment>
         )
     }
 }

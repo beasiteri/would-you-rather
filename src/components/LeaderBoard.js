@@ -10,28 +10,30 @@ class LeaderBoard extends Component {
             users: PropTypes.array.isRequired
           };
         return(
-            <div className="leaderboard-container">
+            <div className="leaderboard">
                 {users.map((user, index) => (
                     <div key={index} className="user-leaderboard">
                         <div className="user-avatar">
                             <img src={user.avatarURL} className="avatar" alt={user.name}/>
                         </div>
-                        <div className="user-question-score-container">
-                            <p>{user.name}</p>
-                            <div className="user-question-score">
-                                <div>
-                                    <p>Answered questions</p>
-                                    <p>{user.questions.length}</p>
-                                </div>
-                                <div>
-                                    <p>Created questions</p>
-                                    <p>{user.questions.length}</p>
+                        <div className="container">
+                            <div className="user-question-score-container">
+                                <p>{user.name}</p>
+                                <div className="user-question-score">
+                                    <div>
+                                        <p>Answered questions</p>
+                                        <p>{user.questions.length}</p>
+                                    </div>
+                                    <div>
+                                        <p>Created questions</p>
+                                        <p>{user.questions.length}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="total-score">
-                            <p>Score</p>
-                            <span>{Number(user.questions.length) + Number(user.questions.length)}</span>
+                            <div className="total-score">
+                                <p>Score</p>
+                                <span>{Number(user.questions.length) + Number(user.questions.length)}</span>
+                            </div>
                         </div>
                     </div>
                 ))}

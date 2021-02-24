@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Form, FormGroup, Input } from "reactstrap";
+import { Form, FormGroup, Input } from "reactstrap";
 import PropTypes from 'prop-types';
 import { setAuthedUser } from '../actions/authedUser';
 import { connect } from 'react-redux';
@@ -37,30 +37,28 @@ class Login extends Component {
       };
 
       return(
-          <Row className="login-container">
-              <Col>
-                  <div className="nav-welcome">
-                    <h1>Welcome to the Would You Rather App!</h1>
-                    <p>Please sign in to continue</p>
-                  </div>
-                  <Form onSubmit={this.handleSubmit}>
-                      <FormGroup>
-                          <Input type="select"    
-                            name="select" value={userId}
-                            onChange={this.handleChangeUser}>
-                            <option value="" disabled>Select User</option>
-                            {
-                            Object.keys(users).map(user =>
-                            <option key={user} value={user}>
-                              {users[user].name}
-                            </option>)
-                            }
-                          </Input>
-                      </FormGroup>
-                      <input disabled={userId === ''} type="submit" value="Sign In" />
-                  </Form>
-              </Col>
-          </Row>
+          <div className="login">
+              <div className="nav-welcome">
+                <h1>Welcome to the Would You Rather App!</h1>
+                <p>Please sign in to continue</p>
+              </div>
+              <Form onSubmit={this.handleSubmit}>
+                  <FormGroup>
+                      <Input type="select"    
+                        name="select" value={userId}
+                        onChange={this.handleChangeUser}>
+                        <option value="" disabled>Select User</option>
+                        {
+                        Object.keys(users).map(user =>
+                        <option key={user} value={user}>
+                          {users[user].name}
+                        </option>)
+                        }
+                      </Input>
+                  </FormGroup>
+                  <input disabled={userId === ''} type="submit" value="Sign In" />
+              </Form>
+          </div>
       )
   }
 }
