@@ -1,4 +1,4 @@
-# "Would you reather" app - Udacity Learning Project
+# "Would you rather" app - Udacity Learning Project
 
 ## About Project
 
@@ -14,7 +14,7 @@ Visit https://nodejs.org to learn the specifics on downloading, installing and r
 Visit https://reactjs.org/ to learn the specifics on downloading, intalling and running ReactJS.
 
 3). Clone the project to your local environment
-### `git clone https://github.com/beasiteri/cwould-you-rather.git`
+### `git clone https://github.com/beasiteri/would-you-rather.git`
 
 4). Go to the cloned project
 ### `cd would-you-rather`
