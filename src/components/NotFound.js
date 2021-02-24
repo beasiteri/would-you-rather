@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Card, CardHeader, CardBody, Button} from 'reactstrap';
+import {Card, CardHeader, CardBody, CardTitle, Button} from 'reactstrap';
 import PropTypes from "prop-types";
 
 class NotFound extends Component {
@@ -22,6 +22,7 @@ class NotFound extends Component {
             <Card className="notFound">
                 <CardHeader>404 - Page Not Found</CardHeader>
                 <CardBody>
+                <CardTitle>Would You Rather</CardTitle>
                 <p>To use this app please click the button below to return to the Home Page and Sign in!</p>      
                 <Button className="btn btn-custom w-50" onClick={() => this.loadHomePage()}>
                     Home Page
