@@ -14,10 +14,10 @@ Visit https://nodejs.org to learn the specifics on downloading, installing and r
 Visit https://reactjs.org/ to learn the specifics on downloading, intalling and running ReactJS.
 
 3). Clone the project to your local environment
-### `git clone https://github.com/beasiteri/chirper-app.git`
+### `git clone https://github.com/beasiteri/cwould-you-rather.git`
 
 4). Go to the cloned project
-### `cd chirper-app`
+### `cd would-you-rather`
 
 5). Install dependencies
 ### `npm install`
