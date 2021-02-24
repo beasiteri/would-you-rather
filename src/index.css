@@ -450,6 +450,16 @@
 }
 /* ------------------- End of Qeustion Details ------------------ */
 
+/* -------------------- Not Found --------------------*/
+.notFound .card-body{
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  margin: 100px auto;
+}
+/* -------------------- End of Not Found --------------------*/
+
+/* ------------------- Media Queries -------------------*/
 @media(min-width: 411px) {
   .login {
     position: absolute;
@@ -537,6 +547,4 @@
   .navbar-nav span img {
     display: block;
   }
-
-
 }
