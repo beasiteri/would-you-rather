@@ -5,7 +5,7 @@ import { unsetAuthedUser } from '../actions/authedUser';
 
 
 class Logout extends Component {
-    componentWillMount () {
+    UNSAFE_componentWillMount () {
         this.props.dispatch(unsetAuthedUser())
     }
 

@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Card, CardHeader,CardBody, CardTitle, FormGroup, Form, Label, Input, Button } from 'reactstrap';
 import User from './User';
 import { handleAnswer } from '../actions/shared';
+import { Redirect } from 'react-router-dom';
+import NavBar from './NavBar';
 
 class QuestionDetails extends Component {
     state = {
-        selectedOption: ''
+        selectedOption: '',
     }; 
 
     selectedAnswer = (e) => {
@@ -29,23 +31,26 @@ class QuestionDetails extends Component {
             question: PropTypes.object,
             questionAuthor: PropTypes.object,
             answer: PropTypes.string,
-            percentageOne: PropTypes.string.isRequired,
-            percentageTwo: PropTypes.string.isRequired
+            percentageOne: PropTypes.string,
+            percentageTwo: PropTypes.string
         };
 
         return(
+            <Fragment>
+            {question === undefined ? (<Redirect to='/not-found' />) : (
+            <Fragment>
+            <NavBar />
             <Card className="question-details">
                 <CardHeader>
                     <p>Asked by <User id={questionAuthor.id}/></p>
-                    {console.log(questionAuthor.avatarURL)}
                 </CardHeader>
                 <CardBody>
                     {answer ?
                         <div className="answered-quest-container">
-                            <img className="image col-xs-12 col-sm-4" src={`/${questionAuthor.avatarURL}`}alt="avatar" />
+                            <img className="image col-xs-12 col-sm-4" src={`/${questionAuthor.avatarURL}`} alt="avatar" />
                             <FormGroup className="col-xs-12 col-sm-8">
                                 <CardTitle>Results:</CardTitle>
-                                <FormGroup check disabled className={answer==='optionOne' && 'isChecked'}>
+                                <FormGroup check disabled className={answer === 'optionOne' ? 'isChecked' : ''}>
                                 <span className="your-vote-icon">Your<br/>vote</span>
                                 <Label check>
                                     <Input type="radio" checked={answer==="optionOne"} readOnly/>{' '}
@@ -58,7 +63,7 @@ class QuestionDetails extends Component {
                                     <p>{votePercentageOne} out of {total} votes</p>
                                 </div>
                                 </FormGroup>
-                                <FormGroup check disabled className={answer==='optionTwo' && 'isChecked'}>
+                                <FormGroup check disabled className={answer === 'optionTwo' ? 'isChecked' : ''} >
                                 <span className="your-vote-icon">Your<br/>vote</span>
                                 <Label check>
                                     <Input type="radio" checked={answer==="optionTwo"} readOnly/>{' '}
@@ -99,6 +104,8 @@ class QuestionDetails extends Component {
                     }
                 </CardBody>
             </Card>
+            </Fragment>)}
+            </Fragment>
         )
     }
 }
@@ -108,33 +115,41 @@ function financial(x) {
 }
 
 function mapStateToProps ({ questions, users, authedUser }, { match }) {
-    const answers = users[authedUser].answers;
-    let answer, percentageOne, percentageTwo, total, votePercentageOne, votePercentageTwo;
     const { id } = match.params;
     const question = questions[id];
-    const questionAuthor = users[question.author];
 
-    if (answers.hasOwnProperty(question.id)) {
-      answer = answers[question.id]
-    }
+    if (question === undefined) {
+        return {
+            question: undefined
+        }
+    } else {
+        const answers = users[authedUser].answers;
+        let answer, percentageOne, percentageTwo, total, votePercentageOne, votePercentageTwo;
+    
+        const questionAuthor = users[question.author];
 
-    total = question.optionOne.votes.length + question.optionTwo.votes.length;
+        if (answers.hasOwnProperty(question.id)) {
+        answer = answers[question.id]
+        }
 
-    percentageOne = financial((question.optionOne.votes.length / total) * 100);
-    percentageTwo = financial((question.optionTwo.votes.length / total) * 100);
+        total = question.optionOne.votes.length + question.optionTwo.votes.length;
 
-    votePercentageOne = Math.round((percentageOne * total) / 100);
-    votePercentageTwo = Math.round((percentageTwo * total) / 100);
+        percentageOne = financial((question.optionOne.votes.length / total) * 100);
+        percentageTwo = financial((question.optionTwo.votes.length / total) * 100);
 
-    return {
-      question,
-      questionAuthor,
-      answer,
-      total,
-      percentageOne,
-      percentageTwo,
-      votePercentageOne,
-      votePercentageTwo
+        votePercentageOne = Math.round((percentageOne * total) / 100);
+        votePercentageTwo = Math.round((percentageTwo * total) / 100);
+
+        return {
+        question,
+        questionAuthor,
+        answer,
+        total,
+        percentageOne,
+        percentageTwo,
+        votePercentageOne,
+        votePercentageTwo
+        }
     }
   }
   

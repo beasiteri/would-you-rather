@@ -9,7 +9,7 @@ import User from "./User";
 class NavBar extends Component {
     state = {
         isOpen: false,
-        activeTab: 'home'
+        activeTab: window.location.pathname
     };
 
     toggleNavbar = () =>  {
@@ -18,10 +18,10 @@ class NavBar extends Component {
         });
     };
 
-    toggleTab(tab) {
-        if (this.state.activeTab !== tab) {
+    toggleTab() {
+        if (this.state.activeTab !== window.location.pathname) {
             this.setState({
-                activeTab: tab
+                activeTab: window.location.pathname
             });
         }
     }
@@ -44,22 +44,22 @@ class NavBar extends Component {
                             <Nav navbar>
                                 <NavItem>
                                     <NavLink 
-                                        className={classnames({ active: this.state.activeTab === 'home' })}
-                                        onClick={() => { this.toggleTab('home'); }} 
+                                        className={classnames({ active: this.state.activeTab === '/' })}
+                                        onClick={() => { this.toggleTab(); }} 
                                         tag={Link} 
                                         to="/">Home</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink 
-                                        className={classnames({ active: this.state.activeTab === 'newquestion' })}
-                                        onClick={() => { this.toggleTab('newquestion'); }} 
+                                        className={classnames({ active: this.state.activeTab === '/add' })}
+                                        onClick={() => { this.toggleTab(); }} 
                                         tag={Link} 
                                         to="/add">New Question</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink 
-                                        className={classnames({ active: this.state.activeTab === 'leaderboard' })}
-                                        onClick={() => { this.toggleTab('leaderboard'); }}
+                                        className={classnames({ active: this.state.activeTab === '/leaderboard' })}
+                                        onClick={() => { this.toggleTab(); }}
                                         tag={Link} 
                                         to="/leaderboard">Leader Board</NavLink>
                                 </NavItem>
@@ -70,7 +70,6 @@ class NavBar extends Component {
                                 </NavItem>
                                 <NavItem>
                                     <NavLink 
-                                        className={classnames({ active: this.state.activeTab === 'logout' })}
                                         tag={Link} 
                                         to="/logout">Logout</NavLink>
                                 </NavItem>

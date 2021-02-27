@@ -31,11 +31,12 @@
 }
 
 .navbar-nav .nav-item img {
-  width: 25px;
+  display: none;
+  /* width: 25px;
   height: 25px;
   position: absolute;
-    left: -32px;
-    top: -2px;
+  left: -32px;
+  top: -2px; */
 }
 
 .navbar-nav span {

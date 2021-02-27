@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
+import NavBar from './NavBar';
 
 class LeaderBoard extends Component {
     render() {
@@ -10,7 +11,9 @@ class LeaderBoard extends Component {
             users: PropTypes.array.isRequired
           };
         return(
-            <div className="leaderboard">
+            <Fragment>
+                <NavBar />
+                <div className="leaderboard">
                 {users.map((user, index) => (
                     <div key={index} className="user-leaderboard">
                         <div className="user-avatar">
@@ -37,7 +40,8 @@ class LeaderBoard extends Component {
                         </div>
                     </div>
                 ))}
-            </div>
+                </div>
+            </Fragment>
         )
     }
 }

@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Nav, NavItem, NavLink, TabContent,TabPane, Row, Col} from 'reactstrap';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import Question from './Question';
 import PropTypes from 'prop-types';
+import NavBar from './NavBar';
 
 class Dashboard extends Component {
     state = {
@@ -25,7 +26,9 @@ class Dashboard extends Component {
         };
 
         return (
-            <div className="dashboard">
+            <Fragment>
+                <NavBar />
+                <div className="dashboard">
                 <Nav className="d-flex flex-nowrap">    
                     <NavItem className="navItem w-100 text-center">
                         <NavLink onClick={() => {this.toggleTab('1')}}
@@ -62,6 +65,7 @@ class Dashboard extends Component {
                     </TabPane>
                 </TabContent>
             </div>
+            </Fragment>
         )
     }
 }

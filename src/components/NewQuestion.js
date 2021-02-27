@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Card, CardHeader, CardBody, CardTitle, Form, Input, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { handleAddQuestion } from '../actions/shared';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import NavBar from './NavBar';
 
 class NewQuestion extends Component {
     state = {
@@ -47,7 +48,9 @@ class NewQuestion extends Component {
         }
 
         return(
-            <Card className="newQuestion">
+            <Fragment>
+                <NavBar />
+                <Card className="newQuestion">
                 <CardHeader className="text-center py-2">Create New Question</CardHeader>
                 <CardBody>
                     <CardTitle>Would you rather...</CardTitle>
@@ -58,7 +61,8 @@ class NewQuestion extends Component {
                         <Button disabled={optionOne === '' || optionTwo === ''} className="btn btn-custom">Submit</Button>
                     </Form>
                 </CardBody>
-            </Card>
+                </Card>
+            </Fragment>
         )
     }
 }

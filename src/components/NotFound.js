@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Card, CardHeader, CardBody, CardTitle, Button} from 'reactstrap';
+import {Card, CardBody, CardTitle, Button} from 'reactstrap';
 import PropTypes from "prop-types";
 
 class NotFound extends Component {
@@ -7,8 +7,8 @@ class NotFound extends Component {
         this.loadHomePage = this.routeChange.bind(this);
     }
 
-    loadHomePage() {
-        this.props.history.push("/");
+    loadSignInPage() {
+        this.props.history.push("/logout");
     }
 
     render() {
@@ -24,7 +24,7 @@ class NotFound extends Component {
                     <CardTitle>404 - Page Not Found</CardTitle>
                     <h1>Would You Rather</h1>
                     <p>To use this app please click the button below to return to the Home Page and Sign in!</p>      
-                    <Button className="btn btn-custom w-50" onClick={() => this.loadHomePage()}>
+                    <Button className="btn btn-custom w-50" onClick={() => this.loadSignInPage()}>
                         Home Page
                     </Button>
                     </CardBody>

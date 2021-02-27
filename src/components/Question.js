@@ -30,7 +30,7 @@ class Question extends Component {
                     <ul className="col-xs-12 col-sm-7">
                         <CardTitle>Would You Rather</CardTitle>
                         <li className={question.optionOne.votes.includes(auth) ? "optionSelected" : ""}>...{question.optionOne.text}...</li>
-                        <Button className="btn btn-custom">View Pull</Button>
+                        <Button className="btn btn-custom">View Poll</Button>
                     </ul>
                 </CardBody>
             </Card>
